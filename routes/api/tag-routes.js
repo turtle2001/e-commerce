@@ -45,19 +45,25 @@ router.put('/:id', async (req, res) => {
         },
       }
     );
-    res.status(200);
+    res.status(200).json({ message: "Successfully updated Tag with ID of " + req.params.id });
   } catch (err) { res.status(400).json(err); }
 });
 
 router.delete('/:id', async (req, res) => {
   try {
-    const catData = await Tag.destroy(
+    const tagData = await Tag.destroy(
       {
         where: {
           id: req.params.id
         }
       }
     );
+
+    if (!tagData) {
+      res.status(404).json({ message: "No tag found with that ID" })
+      return
+    }
+
     res.status(200).json({ message: "Destroyed Tag with ID of " + req.params.id })
   } catch (err) { res.status(500).json(err); }
 });
