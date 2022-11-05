@@ -10,8 +10,6 @@ This repository utilizes
 * MySQL
 * Sequelize
 
-[Video](https://drive.google.com/file/d/1igvRYhMDQkZI4DhJKViT-1mP5wNefpmW/view)
-
 ## Installation 
 
 Install node. Intall dependencies with the following command.
